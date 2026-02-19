@@ -80,7 +80,7 @@ export default function DashboardPage() {
         {/* ── Hero: Score + Stats ── */}
         <div className="dash-hero">
           {/* Left: Score */}
-          <TiltCard className="card card-flat animate-in stagger-1">
+          <TiltCard className="card card-glass card-flat animate-in stagger-1">
             <div style={{ display: 'flex', justifyContent: 'center', marginBottom: 'var(--sp-6)' }}>
               <HealthScoreGauge score={healthScore.total} label={healthScore.label} size={180} />
             </div>
