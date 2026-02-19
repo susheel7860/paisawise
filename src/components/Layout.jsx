@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { NavLink, Outlet } from 'react-router-dom';
 import { useApp } from '../App';
 
@@ -21,13 +21,27 @@ const MOBILE_NAV = [
 
 export default function Layout() {
   const { appData } = useApp();
+  const [collapsed, setCollapsed] = useState(() => {
+    try { return localStorage.getItem('sidebar-collapsed') === 'true'; } catch { return false; }
+  });
+
+  useEffect(() => {
+    try { localStorage.setItem('sidebar-collapsed', String(collapsed)); } catch {}
+  }, [collapsed]);
 
   return (
     <div className="app-layout">
       {/* Desktop + Tablet Sidebar */}
-      <aside className="sidebar">
+      <aside className={`sidebar ${collapsed ? 'collapsed' : ''}`}>
         <div className="sidebar-logo">
-          <span>Paise</span>Wise
+          <span className="sidebar-logo-text">PaiseWise</span>
+          <button
+            className="sidebar-toggle"
+            onClick={() => setCollapsed(!collapsed)}
+            title={collapsed ? 'Expand sidebar' : 'Collapse sidebar'}
+          >
+            {collapsed ? '▸' : '◂'}
+          </button>
         </div>
         <nav className="sidebar-nav">
           {NAV_ITEMS.map(item => (
@@ -43,21 +57,21 @@ export default function Layout() {
           ))}
         </nav>
         <div className="sidebar-footer">
-          <div style={{ fontSize: 'var(--text-xs)', color: 'var(--text-tertiary)' }}>
+          <div className="footer-details" style={{ fontSize: 'var(--text-xs)', color: 'var(--text-tertiary)', marginBottom: 4 }}>
             <div style={{ fontWeight: 600, color: 'var(--text-secondary)', marginBottom: 4 }}>
               {appData.plan === 'free' ? 'Free Plan' : appData.plan === 'pro' ? 'Pro' : 'Pro+'}
             </div>
-            {appData.plan === 'free' && (
-              <NavLink to="/pricing" className="btn btn-primary btn-sm btn-full">
-                Upgrade
-              </NavLink>
-            )}
           </div>
+          {appData.plan === 'free' && (
+            <NavLink to="/pricing" className="btn btn-primary btn-sm btn-full">
+              Upgrade
+            </NavLink>
+          )}
         </div>
       </aside>
 
       {/* Main Content */}
-      <main className="main-content">
+      <main className={`main-content ${collapsed ? 'sidebar-collapsed' : ''}`}>
         <Outlet />
       </main>
 

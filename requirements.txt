@@ -1,0 +1,40 @@
+# PaiseWise — System Requirements & Dependencies
+
+## Runtime Requirements
+- Node.js >= 18.0.0
+- npm >= 9.0.0
+
+## Frontend Dependencies (installed via npm install)
+react >= 18.0.0
+react-dom >= 18.0.0
+react-router-dom >= 6.0.0
+
+## Build Tool
+vite >= 7.0.0
+
+## Mobile (Capacitor)
+@capacitor/core >= 7.0.0
+@capacitor/cli >= 7.0.0
+@capacitor/android >= 7.0.0
+@capacitor/ios >= 7.0.0
+
+## For Android Builds
+- Android Studio (latest)
+- Android SDK (API 22+)
+- Java JDK 17+
+
+## For iOS Builds
+- macOS (required)
+- Xcode 15+
+- CocoaPods (`sudo gem install cocoapods`)
+
+## External Services
+- Google Fonts CDN (Inter font family)
+- No backend / API / database required
+- All data stored in browser localStorage
+
+## Browser Support
+- Chrome 90+
+- Firefox 90+
+- Safari 15+
+- Edge 90+

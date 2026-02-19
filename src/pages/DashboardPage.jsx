@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import { useApp } from '../App';
 import HealthScoreGauge from '../components/HealthScoreGauge';
 import ProgressRing from '../components/ProgressRing';
+import TiltCard from '../components/TiltCard';
 import { calculateHealthScore } from '../engine/healthScore';
 import { getTotalSpending, getSpendingByCategory } from '../engine/insightEngine';
 
@@ -79,7 +80,7 @@ export default function DashboardPage() {
         {/* ── Hero: Score + Stats ── */}
         <div className="dash-hero">
           {/* Left: Score */}
-          <div className="card card-flat animate-in stagger-1">
+          <TiltCard className="card card-flat animate-in stagger-1">
             <div style={{ display: 'flex', justifyContent: 'center', marginBottom: 'var(--sp-6)' }}>
               <HealthScoreGauge score={healthScore.total} label={healthScore.label} size={180} />
             </div>
@@ -107,16 +108,16 @@ export default function DashboardPage() {
                 {mostImpactful.type === 'positive' ? '↑' : mostImpactful.type === 'warning' ? '↓' : '→'} {mostImpactful.text}
               </div>
             )}
-          </div>
+          </TiltCard>
 
           {/* Right: Stats 2x2 */}
           <div className="dash-stats animate-in stagger-2">
-            <div className="stat-card">
+            <TiltCard className="stat-card">
               <div className="stat-label">Today</div>
               <div className="stat-value" style={{ color: 'var(--accent)' }}>₹{todaySpend.toLocaleString('en-IN')}</div>
               <div className="stat-sub neutral">spent today</div>
-            </div>
-            <div className="stat-card">
+            </TiltCard>
+            <TiltCard className="stat-card">
               <div className="stat-label">This Week</div>
               <div className="stat-value">₹{weekSpend.toLocaleString('en-IN')}</div>
               {lastWeekSpend > 0 && (
@@ -124,8 +125,8 @@ export default function DashboardPage() {
                   {weekChange <= 0 ? '↓' : '↑'} {Math.abs(weekChange)}% vs last week
                 </div>
               )}
-            </div>
-            <div className="stat-card">
+            </TiltCard>
+            <TiltCard className="stat-card">
               <div className="stat-label">This Month</div>
               <div className="stat-value">₹{monthSpend.toLocaleString('en-IN')}</div>
               {user?.monthlyIncome > 0 && (
@@ -133,8 +134,8 @@ export default function DashboardPage() {
                   {incomePercent}% of income
                 </div>
               )}
-            </div>
-            <div className="stat-card" style={{ background: 'rgba(0, 208, 156, 0.04)' }}>
+            </TiltCard>
+            <TiltCard className="stat-card" style={{ background: 'rgba(0, 208, 156, 0.04)' }}>
               <div className="stat-label">Saved</div>
               <div className="stat-value" style={{ color: totalSaved > 0 ? 'var(--accent)' : 'var(--text-tertiary)' }}>
                 ₹{totalSaved.toLocaleString('en-IN')}
@@ -142,7 +143,7 @@ export default function DashboardPage() {
               {activeGoal && (
                 <div className="stat-sub neutral">Goal: ₹{activeGoal.target.toLocaleString('en-IN')}</div>
               )}
-            </div>
+            </TiltCard>
           </div>
         </div>
 

@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">PaiseWise</string>
+    <string name="title_activity_main">PaiseWise</string>
+    <string name="package_name">com.paisewise.app</string>
+    <string name="custom_url_scheme">com.paisewise.app</string>
+</resources>

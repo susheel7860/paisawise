@@ -53,8 +53,8 @@ const TESTIMONIALS = [
 
 const FAQ = [
   { q: 'Is my data safe?', a: 'Yes. All data is stored locally on your device. We never access your bank account, SMS, or any financial credentials. Your data never leaves your phone.' },
-  { q: 'Can I cancel anytime?', a: 'Absolutely. Cancel your subscription anytime from Settings. You'll continue to have access until the end of your billing period, and your data remains yours.' },
-  { q: 'Do you access my bank account?', a: 'No. Never. PaiseWise works entirely on what you tell us. We don't read your SMS, connect to your bank, or access any third-party financial data. This is our core promise.' },
+  { q: 'Can I cancel anytime?', a: `Absolutely. Cancel your subscription anytime from Settings. You'll continue to have access until the end of your billing period, and your data remains yours.` },
+  { q: 'Do you access my bank account?', a: `No. Never. PaiseWise works entirely on what you tell us. We don't read your SMS, connect to your bank, or access any third-party financial data. This is our core promise.` },
   { q: 'How is the ₹3,400 saving calculated?', a: 'Based on average spending reduction reported by Pro users over their first 3 months. The weekly reports and AI nudges help users identify and cut wasteful spending.' },
   { q: 'What payment methods do you accept?', a: 'UPI, debit cards, credit cards, and net banking. All payments are processed securely through Razorpay.' },
 ];
